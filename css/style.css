@@ -1,0 +1,22 @@
+body {
+    background-color: blue;
+}
+
+h1 {
+    margin: 30px;
+    font-size: large;
+    background-color: crimson;
+
+}
+p {
+    padding: 10px;
+}
+
+#first-paragraph {
+
+}
+container {
+    width: 200px;
+    height: 120px;
+
+}
