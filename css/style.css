@@ -23,8 +23,7 @@ h3 {
     height: 10px;
     font-size: x-large;
     background-color: salmon;
-    text-align: center;
-    
+    text-align: center;  
 }
 
 ol {
@@ -51,17 +50,16 @@ ul {
     margin-right: 0;
     margin: 50px;
     padding-right: 20px;
-
 }
+
 p {
     padding: 10px;
 }
 
 #first-paragraph {
-
 }
+
 container {
     width: 200px;
     height: 120px;
-
 }
