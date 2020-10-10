@@ -4,11 +4,14 @@ var guestName = prompt('what is your name?');
 //console.log('Hello there' + guestName + 'it is really nice to meet you!');
 alert('Hello there ' + guestName + ' it is really nice to meet you!');
 
+var totalPoints = 0;
+
 function questionA() {
     var nickName = prompt('Do you think I have a nickname? yes or no');
     var nickNameAnswer = nickName.toLowerCase();
     if (nickNameAnswer === 'yes' || 'y') {
         nickName = prompt('That is correct. My nickname is D');
+        totalPoints++;
         //how do I put a stop to the code if the right answer has been submitted.
         if (nickNameAnswer === 'no' || 'N' || 'n') {
             nickName = prompt('sorry that is incorrect. try again');
@@ -19,11 +22,15 @@ function questionA() {
 
 questionA();
 
+
+
 function questionB() {
     var color = prompt('Do you think I like red color over blue? yes or no');
     var guessedColor = color.toUpperCase();
     if (guessedColor === 'yes' || 'Y') {
         color = prompt('that is correct I love the color red');
+        totalPoints++;
+
         if (guessedColor === 'no' || 'n' || 'N') {
             color = prompt('sorry try again');
         }
@@ -38,6 +45,8 @@ function questionC() {
     var gameDay = game.toUpperCase();
     if (gameDay === 'yes' || 'Y') {
         game = prompt('that is correct football is awesome');
+        totalPoints++;
+
         if (gameDay === 'no' || 'n' || 'N') {
             game = prompt('sorry thats incorrect. try again');
         }
@@ -53,6 +62,8 @@ function questionD() {
         height = prompt('sorry try again');
         if (height === 'no' || 'N') {
             height = prompt('That is correct. I am 5 feet 11 and half inches');
+            totalPoints++;
+
         }
     }
 }
@@ -65,6 +76,8 @@ function questionE() {
         birthLocation = prompt('Sorry that is incorrect. I was born in the hospital like most of us');
         if (birthLocation = 'no') {
             birthLocation = prompt('That is correct.');
+            totalPoints++;
+
             alert('Thank you for playing my About me game' + guestName + '.' + 'I hope you got to know me a bit.' + 'until next time take good care of yourself.');
         }
     }
@@ -109,6 +122,8 @@ function questionF() {
 
         if (correctGuesses === '5') {
             alert('That is correct.');
+            totalPoints++;
+
             break;
         }
         if (allowedGuesses === 1) {
@@ -127,13 +142,41 @@ questionF();
 
 // question # 7
 
-//var drinks = ['Water', 'Apple Juice', 'Orange Juice', 'Beer', 'Vodka', 'Coke', 'Milk']
+function questionG() {
+
+    
+    var drinks = ['Water', 'Apple Juice', 'Orange Juice', 'Beer', 'Vodka', 'Coke', 'Milk'];
+    var mainQuestion = prompt('What do you think my favorite drinks are?');
+    var allowwedAttemptsLeft = 6;
+    var rightAnswers = false;
+    
+    while (allowwedAttemptsLeft > 0 && !rightAnswers) {
+        allowwedAttemptsLeft--;
+        for (var i = 0; i < drinks.length; i++){
+            if(mainQuestion === drinks[i]){
+                rightAnswers = true;
+                alert(`My favorite drink is ${mainQuestion}`);
+                totalPoints++;
+
+            }
+        }
+        
+        if (allowwedAttemptsLeft > 0 && !rightAnswers) {
+            mainQuestion = prompt('Sorry that is incorrect please try again.')
+        }
+        if (allowwedAttemptsLeft === 0 && !rightAnswers){
+            alert('Sorry you did not guess the right answer within 6 attempts.')
+        }
+    }
+}
+
+alert(`Your result! You answered ${totalPoints}` + ` correctly.`)
+
+alert(`Thank you for participating ${guestName}, Until next time take care!`)
 
 // for (var i = 0; i < 6; i++)
 
 // var rightAnswers = ['Water', 'Milk', 'Coke'];
-// var mainQuestion = prompt('What do you think my favorite drinks are?');
-// //var allowwedAttempts = 6;
 
 
 //     if (mainQuestion !== rightAnswers)[i];{
@@ -156,5 +199,5 @@ questionF();
 
 
 
-//this is not needed for now 
-//alert(`Hi $(guestName), this is template literal!`);
+// this is not needed for now 
+// alert(`Hi $(guestName), this is template literal!`);
