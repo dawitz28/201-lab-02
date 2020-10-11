@@ -1,7 +1,6 @@
 'use strict';
 
 var guestName = prompt('what is your name?');
-//console.log('Hello there' + guestName + 'it is really nice to meet you!');
 alert('Hello there ' + guestName + ' it is really nice to meet you!');
 
 var totalPoints = 0;
@@ -9,62 +8,59 @@ var totalPoints = 0;
 function questionA() {
     var nickName = prompt('Do you think I have a nickname? yes or no');
     var nickNameAnswer = nickName.toLowerCase();
-    if (nickNameAnswer === 'yes' || 'y') {
-        nickName = prompt('That is correct. My nickname is D');
+    console.log(nickNameAnswer)
+    if (nickNameAnswer === 'yes' || nickNameAnswer === 'y') {
+        alert('That is correct. My nickname is D');
         totalPoints++;
-        //how do I put a stop to the code if the right answer has been submitted.
-        if (nickNameAnswer === 'no' || 'N' || 'n') {
-            nickName = prompt('sorry that is incorrect. try again');
-        }
     }
-
+    else {
+        alert('sorry that is incorrect. try again');
+        questionA();
+    }
 }
-
 questionA();
-
-
 
 function questionB() {
     var color = prompt('Do you think I like red color over blue? yes or no');
     var guessedColor = color.toUpperCase();
-    if (guessedColor === 'yes' || 'Y') {
-        color = prompt('that is correct I love the color red');
+    console.log(guessedColor)
+    if (guessedColor === 'YES' || guessedColor === 'Y' || guessedColor === 'yes') {
+        alert('that is correct I love the color red');
         totalPoints++;
-
-        if (guessedColor === 'no' || 'n' || 'N') {
-            color = prompt('sorry try again');
-        }
+    }
+    else {
+        alert('sorry try again');
+        questionB();
     }
 }
-
 questionB();
-
 
 function questionC() {
     var game = prompt('Is it true that I like football better than basketball? yes or no');
     var gameDay = game.toUpperCase();
-    if (gameDay === 'yes' || 'Y') {
-        game = prompt('that is correct football is awesome');
+    console.log(gameDay)
+    if (gameDay === 'YES' || gameDay === 'Y') {
+        alert('that is correct football is awesome');
         totalPoints++;
-
-        if (gameDay === 'no' || 'n' || 'N') {
-            game = prompt('sorry thats incorrect. try again');
-        }
+    }
+    else {
+        alert('sorry thats incorrect. try again');
+        questionC();
     }
 }
 questionC();
 
 function questionD() {
-    //the best one so far
     var height = prompt('Do you think I am 5 feet 6 inches tall? yes or no');
     var guessedHeight = height.toUpperCase();
-    if (height === 'yes' || 'Y' || 'y') {
-        height = prompt('sorry try again');
-        if (height === 'no' || 'N') {
-            height = prompt('That is correct. I am 5 feet 11 and half inches');
-            totalPoints++;
-
-        }
+    console.log(guessedHeight)
+    if (guessedHeight === 'NO' || guessedHeight === 'N') {
+        alert('That is correct. I am 5 feet 11 and half inches');
+        totalPoints++;
+    }
+    else {
+        alert('sorry try again');
+        questionD();
     }
 }
 questionD();
@@ -72,46 +68,17 @@ questionD();
 function questionE() {
     var birthLocation = prompt('Was I born on the plane? yes or no');
     var birthPlace = birthLocation.toLowerCase();
-    if (birthLocation === 'yes') {
-        birthLocation = prompt('Sorry that is incorrect. I was born in the hospital like most of us');
-        if (birthLocation = 'no') {
-            birthLocation = prompt('That is correct.');
-            totalPoints++;
-
-            alert('Thank you for playing my About me game' + guestName + '.' + 'I hope you got to know me a bit.' + 'until next time take good care of yourself.');
-        }
+    console.log(birthPlace)
+    if (birthPlace === 'no' || birthPlace === 'n') {
+        alert('That is correct, I was born in the hospital like most of you!')
+        totalPoints++;
+    }
+    else {
+        alert('Sorry that is incorrect, please try again.');
+        questionE();
     }
 }
 questionE();
-
-
-// Not using this
-// for (var i = 0; i < 4; i++) {}
-
-// question# 6
-
-
-// var i = 0;
-// var allowedGuesses = 4;
-// var correctGuesses = false;
-
-// while (i < 3 && !correctGuesses) {
-//     i++;
-//     var guess = prompt('How many cars do you think I have?');
-//     console.log(typeof guess, guess);
-//     if (guess > allowedGuesses) {
-//         alert('That is too high. Please try again.');
-//     } else if (guess < allowedGuesses) {
-//         alert('That is too low. Please try again.');
-//     } else if (guess === 4) {
-//         alert('That is correct.');
-//         correctGuesses = true;
-//         break
-//     }
-
-//     if (!correctGuesses) {
-//         alert('Sorry you have no more tries left. The correct answer is 4.');
-//     }
 
 function questionF() {
 
@@ -123,7 +90,6 @@ function questionF() {
         if (correctGuesses === '5') {
             alert('That is correct.');
             totalPoints++;
-
             break;
         }
         if (allowedGuesses === 1) {
@@ -140,64 +106,33 @@ function questionF() {
 }
 questionF();
 
-// question # 7
-
 function questionG() {
 
-    
-    var drinks = ['Water', 'Apple Juice', 'Orange Juice', 'Beer', 'Vodka', 'Coke', 'Milk'];
+    var drinks = ['water', 'apple Juice', 'orange juice', 'beer', 'vodka', 'coke', 'milk'];
     var mainQuestion = prompt('What do you think my favorite drinks are?');
     var allowwedAttemptsLeft = 6;
     var rightAnswers = false;
-    
+
     while (allowwedAttemptsLeft > 0 && !rightAnswers) {
         allowwedAttemptsLeft--;
-        for (var i = 0; i < drinks.length; i++){
-            if(mainQuestion === drinks[i]){
+        for (var i = 0; i < drinks.length; i++) {
+            if (mainQuestion === drinks[i]) {
                 rightAnswers = true;
                 alert(`My favorite drink is ${mainQuestion}`);
                 totalPoints++;
-
             }
         }
-        
         if (allowwedAttemptsLeft > 0 && !rightAnswers) {
             mainQuestion = prompt('Sorry that is incorrect please try again.')
         }
-        if (allowwedAttemptsLeft === 0 && !rightAnswers){
+        if (allowwedAttemptsLeft === 0 && !rightAnswers) {
             alert('Sorry you did not guess the right answer within 6 attempts.')
         }
     }
 }
+questionG();
 
 alert(`Your result! You answered ${totalPoints}` + ` correctly.`)
 
-alert(`Thank you for participating ${guestName}, Until next time take care!`)
+alert('Thank you for participating in my About me game ' + guestName + '.' + ' I hope you got to know me a bit and until next time take good care of yourself.');
 
-// for (var i = 0; i < 6; i++)
-
-// var rightAnswers = ['Water', 'Milk', 'Coke'];
-
-
-//     if (mainQuestion !== rightAnswers)[i];{
-//         alert('That is incorrect answer. Please try again.');
-//     } 
-//     else if (mainQuestion === rightAnswers[0]){
-//         alert('Correct. That is the right answer.');
-//         break;
-//     }
-//     else if (mainQuestion === rightAnswers[1]){
-//         alert('Correct. That is the right answer.');
-//         break;
-//     }
-//     else if (mainQuestion === rightAnswers[2]){
-//         alert('Correct. That is the right answer.');
-//         break
-//     }
-
-
-
-
-
-// this is not needed for now 
-// alert(`Hi $(guestName), this is template literal!`);
